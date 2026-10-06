@@ -14,27 +14,19 @@ jobs:
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
-
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: ./my-astro-blog/package-lock.json
+          cache-dependency-path: ./package-lock.json
 
       - name: Install dependencies
-        working-directory: ./my-astro-blog
         run: npm ci
 
       - name: Lint
-        working-directory: ./my-astro-blog
-
         run: npm run lint
-      - name: Debug Astro installation
-        working-directory: ./my-astro-blog
-        run: |
-          node -p "require('./node_modules/astro/package.json').version"
-          ls -la node_modules/astro/tsconfigs
-          cat tsconfig.json
+
+      - name: Type-check
+        run: npm run check
 
       - name: Build
-        working-directory: ./my-astro-blog
         run: npm run build

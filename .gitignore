@@ -6,6 +6,9 @@ dist/
 # dependencies
 node_modules/
 
+# Local secondary Astro copy
+my-astro-blog/my-astro-blog2/
+
 # logs
 npm-debug.log*
 yarn-debug.log*
