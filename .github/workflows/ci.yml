@@ -28,7 +28,13 @@ jobs:
         working-directory: ./my-astro-blog
 
         run: npm run lint
-
+      - name: Debug Astro installation
+        working-directory: ./my-astro-blog
+        run: |
+          node -p "require('./node_modules/astro/package.json').version"
+          ls -la node_modules/astro/tsconfigs
+          cat tsconfig.json
+          
       - name: Build
         working-directory: ./my-astro-blog
         run: npm run build
