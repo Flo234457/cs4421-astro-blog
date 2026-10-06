@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-node@v4
 
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
           cache-dependency-path: ./my-astro-blog/package-lock.json
 
@@ -34,7 +34,7 @@ jobs:
           node -p "require('./node_modules/astro/package.json').version"
           ls -la node_modules/astro/tsconfigs
           cat tsconfig.json
-          
+
       - name: Build
         working-directory: ./my-astro-blog
         run: npm run build
